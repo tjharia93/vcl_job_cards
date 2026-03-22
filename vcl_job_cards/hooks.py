@@ -1,0 +1,9 @@
+app_name = "vcl_job_cards"
+app_title = "VCL Job Card Tracking"
+app_publisher = "Vimit Converters Limited"
+app_description = "Job card management system for VCL manufacturing operations"
+app_email = "tanuj@vimitconverters.com"
+app_license = "mit"
+required_apps = ["erpnext"]
+fixtures = []
+hide_in_installer = []
