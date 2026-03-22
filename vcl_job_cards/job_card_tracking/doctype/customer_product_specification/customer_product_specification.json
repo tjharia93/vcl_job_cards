@@ -276,6 +276,9 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
    "write": 1
   },
   {
@@ -288,6 +291,9 @@
    "report": 1,
    "role": "Sales Manager",
    "share": 1,
+   "submit": 1,
+   "cancel": 1,
+   "amend": 1,
    "write": 1
   },
   {
@@ -303,6 +309,7 @@
    "write": 0
   }
  ],
+ "is_submittable": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1
