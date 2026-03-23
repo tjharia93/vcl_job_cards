@@ -15,6 +15,14 @@ const PAPER_RULES = {
 	last:   { paper_type: "CF",          gsm: 55 },
 };
 
+const GSM_BY_PAPER_TYPE = {
+	"CB":          55,
+	"CFB":         50,
+	"CF":          55,
+	"60 GSM Bond": 60,
+	"70 GSM Bond": 70,
+};
+
 function get_paper_rule(part_num, total_parts) {
 	if (total_parts === 1) return PAPER_RULES.single;
 	if (part_num === 1)            return PAPER_RULES.first;
@@ -88,6 +96,14 @@ frappe.ui.form.on("Colour of Parts", {
 		frappe.model.set_value(cdt, cdn, "part_number", part_num);
 		update_paper_type_and_gsm(frm, row, part_num, total);
 		frm.refresh_field("colour_of_parts");
+	},
+
+	paper_type(frm, cdt, cdn) {
+		const row = frappe.get_doc(cdt, cdn);
+		const gsm = GSM_BY_PAPER_TYPE[row.paper_type];
+		if (gsm !== undefined) {
+			frappe.model.set_value(cdt, cdn, "gsm", gsm);
+		}
 	},
 
 	colour_of_parts_remove(frm) {
