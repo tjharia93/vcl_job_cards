@@ -52,7 +52,7 @@ class CustomerProductSpecification(Document):
 	def _validate_paper_type_and_gsm(self, parts):
 		n = len(parts)
 
-		valid_single = [("60 GSM Bond", 60), ("CB", 55)]
+		valid_single = [("60 GSM Bond", 60), ("CB", 55), ("70 GSM Bond", 70)]
 		valid_first = [("CB", 55)]
 		valid_middle = [("CFB", 50)]
 		valid_last = [("CF", 55)]
