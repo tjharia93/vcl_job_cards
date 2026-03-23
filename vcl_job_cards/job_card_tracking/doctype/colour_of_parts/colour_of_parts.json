@@ -30,8 +30,7 @@
    "fieldname": "gsm",
    "fieldtype": "Int",
    "in_list_view": 1,
-   "label": "GSM",
-   "read_only": 1
+   "label": "GSM"
   },
   {
    "fieldname": "colour",
