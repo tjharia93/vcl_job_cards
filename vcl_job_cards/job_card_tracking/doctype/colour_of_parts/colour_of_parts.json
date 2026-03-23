@@ -24,7 +24,7 @@
    "fieldtype": "Select",
    "in_list_view": 1,
    "label": "Paper Type",
-   "options": "CB\nCFB\nCF\n60 GSM Bond"
+   "options": "CB\nCFB\nCF\n60 GSM Bond\n70 GSM Bond"
   },
   {
    "fieldname": "gsm",
