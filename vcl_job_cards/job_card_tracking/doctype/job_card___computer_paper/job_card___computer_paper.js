@@ -2,7 +2,7 @@ frappe.ui.form.on("Job Card - Computer Paper", {
 	refresh(frm) {
 		frm.set_query("customer_product_spec", function () {
 			return {
-				query: "vcl_job_cards.job_card_tracking.doctype.job_card_computer_paper.job_card_computer_paper.get_customer_product_spec_query",
+				query: "vcl_job_cards.job_card_tracking.doctype.job_card___computer_paper.job_card___computer_paper.get_customer_product_spec_query",
 				filters: { customer: frm.doc.customer },
 			};
 		});
@@ -29,7 +29,7 @@ frappe.ui.form.on("Job Card - Computer Paper", {
 		// Warn if customer has no active Computer Paper specs
 		if (frm.doc.customer) {
 			frappe.call({
-				method: "vcl_job_cards.job_card_tracking.doctype.job_card_computer_paper.job_card_computer_paper.get_customer_product_spec_query",
+				method: "vcl_job_cards.job_card_tracking.doctype.job_card___computer_paper.job_card___computer_paper.get_customer_product_spec_query",
 				args: {
 					doctype: "Customer Product Specification",
 					txt: "",
