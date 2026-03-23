@@ -89,6 +89,7 @@
    "description": "Select specification for this customer. If none available, create Customer Product Specification first.",
    "fieldname": "customer_product_spec",
    "fieldtype": "Link",
+   "get_query": "vcl_job_cards.job_card_tracking.doctype.job_card_computer_paper.job_card_computer_paper.get_customer_product_spec_query",
    "in_list_view": 1,
    "label": "Customer Product Specification",
    "options": "Customer Product Specification",
