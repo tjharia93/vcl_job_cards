@@ -105,8 +105,7 @@
    "fieldname": "job_size",
    "fieldtype": "Data",
    "label": "Job Size",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "pay_slip_size",
@@ -118,15 +117,13 @@
    "fieldname": "number_of_colours",
    "fieldtype": "Int",
    "label": "Number of Colours",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "number_of_parts",
    "fieldtype": "Int",
    "label": "Number of Parts",
-   "read_only": 1,
-   "reqd": 1
+   "read_only": 1
   },
   {
    "fieldname": "colour_of_parts",

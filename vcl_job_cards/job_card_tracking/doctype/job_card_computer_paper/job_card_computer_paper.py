@@ -5,10 +5,19 @@ from frappe.model.document import Document
 class JobCardComputerPaper(Document):
 	def validate(self):
 		self.validate_customer_product_spec()
+		self.validate_spec_fields()
 		self.validate_numbering()
 		self.validate_plate()
 		self.validate_quantity()
 		self.set_sales_rep_info()
+
+	def validate_spec_fields(self):
+		if self.customer_product_spec and not self.job_size:
+			frappe.throw("Job Size is required. Please re-select the Customer Product Specification.")
+		if self.customer_product_spec and not self.number_of_colours:
+			frappe.throw("Number of Colours is required. Please re-select the Customer Product Specification.")
+		if self.customer_product_spec and not self.number_of_parts:
+			frappe.throw("Number of Parts is required. Please re-select the Customer Product Specification.")
 
 	def validate_customer_product_spec(self):
 		if not self.customer_product_spec:
