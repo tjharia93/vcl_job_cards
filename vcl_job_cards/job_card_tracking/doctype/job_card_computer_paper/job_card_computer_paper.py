@@ -104,7 +104,7 @@ def get_customer_product_spec_query(doctype, txt, searchfield, start, page_len, 
 		{
 			"customer": filters.get("customer"),
 			"txt": "%%" + txt + "%%",
-			"start": start,
-			"page_len": page_len,
+			"start": int(start),
+			"page_len": int(page_len),
 		},
 	)
