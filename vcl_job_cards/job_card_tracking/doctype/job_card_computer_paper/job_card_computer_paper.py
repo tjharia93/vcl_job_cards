@@ -46,17 +46,11 @@ class JobCardComputerPaper(Document):
 		if not self.numbering_required:
 			return
 
-		if not self.numbering_start or self.numbering_start <= 0:
-			frappe.throw("Numbering Start must be a positive integer when Numbering Required is checked.")
+		if not self.numbering_start:
+			frappe.throw("Numbering Start is required when Numbering Required is checked.")
 
-		if not self.numbering_end or self.numbering_end <= 0:
-			frappe.throw("Numbering End must be a positive integer when Numbering Required is checked.")
-
-		if self.numbering_start >= self.numbering_end:
-			frappe.throw(
-				f"Numbering Start ({self.numbering_start}) must be less than "
-				f"Numbering End ({self.numbering_end})."
-			)
+		if not self.numbering_end:
+			frappe.throw("Numbering End is required when Numbering Required is checked.")
 
 	def validate_plate(self):
 		if self.plate_status == "Old" and not self.plate_code:

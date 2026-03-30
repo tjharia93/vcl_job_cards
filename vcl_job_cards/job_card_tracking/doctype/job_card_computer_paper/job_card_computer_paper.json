@@ -6,6 +6,7 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "amended_from",
   "naming_series",
   "order_date",
   "due_date",
@@ -43,6 +44,16 @@
   "management_comments"
  ],
  "fields": [
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Job Card Computer Paper",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
   {
    "fieldname": "naming_series",
    "fieldtype": "Select",
@@ -180,13 +191,13 @@
   {
    "depends_on": "eval:doc.numbering_required==1",
    "fieldname": "numbering_start",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "Numbering Start"
   },
   {
    "depends_on": "eval:doc.numbering_required==1",
    "fieldname": "numbering_end",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "label": "Numbering End"
   },
   {
