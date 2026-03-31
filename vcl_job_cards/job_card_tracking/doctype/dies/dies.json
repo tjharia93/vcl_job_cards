@@ -2,12 +2,13 @@
  "actions": [],
  "allow_copy": 1,
  "allow_import": 1,
- "autname": "auto_increment",
+ "autoname": "naming_series:",
  "creation": "2026-03-31 00:00:00.000000",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
   "die_number",
   "die_size",
   "basic_details_section",
@@ -20,21 +21,28 @@
   "teeth",
   "material_section",
   "material",
-  "qty",
-  "packing_section",
-  "standard_packing",
+  "orders_section",
+  "orders",
   "notes_section",
   "remark"
  ],
  "fields": [
   {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "DIE-.#####",
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
    "fieldname": "die_number",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Die Number",
-   "reqd": 1,
-   "unique": 1
+   "read_only": 1,
+   "reqd": 1
   },
   {
    "fieldname": "die_size",
@@ -106,20 +114,15 @@
    "options": "\nTHERMAL\nPHOTO\nMETAL\nPLASTIC\nCARDOARD\nWOOD"
   },
   {
-   "fieldname": "qty",
-   "fieldtype": "Int",
-   "label": "Quantity (Packing Pieces)",
-   "precision": "0"
-  },
-  {
-   "fieldname": "packing_section",
+   "fieldname": "orders_section",
    "fieldtype": "Section Break",
-   "label": "Packing"
+   "label": "Orders"
   },
   {
-   "fieldname": "standard_packing",
-   "fieldtype": "Data",
-   "label": "Standard Packing"
+   "fieldname": "orders",
+   "fieldtype": "Table",
+   "label": "Orders",
+   "options": "Dies Order"
   },
   {
    "fieldname": "notes_section",
@@ -155,7 +158,7 @@
    "write": 1
   },
   {
-   "create": 1,
+   "create": 0,
    "delete": 0,
    "email": 1,
    "export": 1,
@@ -163,11 +166,11 @@
    "read": 1,
    "report": 1,
    "role": "Sales Manager",
-   "share": 1,
-   "submit": 1,
-   "cancel": 1,
-   "amend": 1,
-   "write": 1
+   "share": 0,
+   "submit": 0,
+   "cancel": 0,
+   "amend": 0,
+   "write": 0
   },
   {
    "create": 0,
@@ -178,11 +181,12 @@
    "read": 1,
    "report": 1,
    "role": "All",
-   "share": 1,
+   "share": 0,
    "write": 0
   }
  ],
  "sort_field": "die_number",
  "sort_order": "ASC",
- "track_changes": 1
+ "track_changes": 1,
+ "naming_rule": "By \"Naming Series\" field"
 }
