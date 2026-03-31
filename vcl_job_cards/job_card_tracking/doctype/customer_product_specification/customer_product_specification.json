@@ -241,7 +241,7 @@
    "fieldname": "packing_pieces",
    "fieldtype": "Int",
    "label": "Packing Pieces",
-   "read_only": 1
+  
   },
   {
    "depends_on": "eval:doc.product_type=='Label'",
