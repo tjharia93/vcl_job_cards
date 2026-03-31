@@ -23,10 +23,18 @@
   "ply",
   "carton_dimensions",
   "label_section",
-  "label_material",
-  "adhesive_type",
-  "finishing",
-  "die_cut_shape",
+  "dies",
+  "label_length",
+  "label_width",
+  "label_number_of_colours",
+  "cylinder_teeth",
+  "plate_up",
+  "plate_round",
+  "packing_up",
+  "material_type",
+  "packing_pieces",
+  "gap_between",
+  "side_trim",
   "exercise_books_section",
   "number_of_pages",
   "ruling_type",
@@ -163,31 +171,91 @@
   },
   {
    "depends_on": "eval:doc.product_type=='Label'",
-   "fieldname": "label_material",
-   "fieldtype": "Select",
-   "label": "Label Material",
+   "fieldname": "dies",
+   "fieldtype": "Link",
+   "label": "Dies",
+   "options": "Dies"
+  },
+  {
+   "depends_on": "eval:doc.product_type=='Label'",
+   "fieldname": "label_length",
+   "fieldtype": "Float",
+   "label": "Label Length (mm)",
    "mandatory_depends_on": "eval:doc.product_type=='Label'",
-   "options": "\nPaper\nVinyl\nPolyester\nTransparent"
+   "precision": "2",
+   "read_only": 1
   },
   {
    "depends_on": "eval:doc.product_type=='Label'",
-   "fieldname": "adhesive_type",
-   "fieldtype": "Select",
-   "label": "Adhesive Type",
-   "options": "Permanent\nRemovable\nFreezer"
+   "fieldname": "label_width",
+   "fieldtype": "Float",
+   "label": "Label Width (mm)",
+   "mandatory_depends_on": "eval:doc.product_type=='Label'",
+   "precision": "2",
+   "read_only": 1
   },
   {
    "depends_on": "eval:doc.product_type=='Label'",
-   "fieldname": "finishing",
-   "fieldtype": "Select",
-   "label": "Finishing",
-   "options": "None\nGloss Lamination\nMatte Lamination\nUV Coating"
+   "fieldname": "label_number_of_colours",
+   "fieldtype": "Int",
+   "label": "Number of Colours",
+   "mandatory_depends_on": "eval:doc.product_type=='Label'"
   },
   {
    "depends_on": "eval:doc.product_type=='Label'",
-   "fieldname": "die_cut_shape",
+   "fieldname": "cylinder_teeth",
    "fieldtype": "Data",
-   "label": "Die Cut Shape"
+   "label": "Cylinder Teeth",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.product_type=='Label'",
+   "fieldname": "plate_up",
+   "fieldtype": "Data",
+   "label": "Plate Up",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.product_type=='Label'",
+   "fieldname": "plate_round",
+   "fieldtype": "Data",
+   "label": "Plate Round",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.product_type=='Label'",
+   "fieldname": "packing_up",
+   "fieldtype": "Data",
+   "label": "Packing Up"
+  },
+  {
+   "depends_on": "eval:doc.product_type=='Label'",
+   "fieldname": "material_type",
+   "fieldtype": "Select",
+   "label": "Material Type",
+   "mandatory_depends_on": "eval:doc.product_type=='Label'",
+   "options": "\nSemi Gloss\nGlossy\nMatte\nPearl"
+  },
+  {
+   "depends_on": "eval:doc.product_type=='Label'",
+   "fieldname": "packing_pieces",
+   "fieldtype": "Int",
+   "label": "Packing Pieces",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.product_type=='Label'",
+   "fieldname": "gap_between",
+   "fieldtype": "Float",
+   "label": "Gap (between)",
+   "precision": "2"
+  },
+  {
+   "depends_on": "eval:doc.product_type=='Label'",
+   "fieldname": "side_trim",
+   "fieldtype": "Float",
+   "label": "Side Trim (mm)",
+   "precision": "2"
   },
   {
    "depends_on": "eval:doc.product_type=='Exercise Books'",

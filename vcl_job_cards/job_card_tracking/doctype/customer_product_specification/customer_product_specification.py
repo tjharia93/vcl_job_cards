@@ -7,6 +7,7 @@ class CustomerProductSpecification(Document):
 		self.validate_product_type()
 		self.set_naming_series()
 		self.validate_computer_paper()
+		self.validate_label()
 		self.validate_exercise_books()
 
 	def validate_product_type(self):
@@ -75,6 +76,21 @@ class CustomerProductSpecification(Document):
 			for part in parts[1:-1]:
 				check(part, valid_middle, "middle part")
 			check(parts[-1], valid_last, "last part")
+
+	def validate_label(self):
+		if self.product_type != "Label":
+			return
+
+		required_fields = [
+			("label_length", "Label Length"),
+			("label_width", "Label Width"),
+			("label_number_of_colours", "Number of Colours"),
+			("material_type", "Material Type"),
+		]
+
+		for field_name, field_label in required_fields:
+			if not getattr(self, field_name, None):
+				frappe.throw(f"{field_label} is required for Label product type.")
 
 	def validate_exercise_books(self):
 		if self.product_type != "Exercise Books":

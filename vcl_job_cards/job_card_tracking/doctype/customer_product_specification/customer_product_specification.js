@@ -85,6 +85,34 @@ frappe.ui.form.on("Customer Product Specification", {
 		if (frm.doc.product_type !== "Computer Paper") return;
 		sync_colour_of_parts(frm);
 	},
+
+	dies(frm) {
+		if (frm.doc.product_type !== "Label" || !frm.doc.dies) return;
+		
+		// Fetch the dies document and auto-populate fields
+		frappe.call({
+			method: "frappe.client.get",
+			args: {
+				doctype: "Dies",
+				name: frm.doc.dies
+			},
+			callback: function(r) {
+				if (r.message) {
+					const dies_doc = r.message;
+					
+					// Auto-populate fields from Dies
+					frm.set_value("label_length", dies_doc.length);
+					frm.set_value("label_width", dies_doc.width);
+					frm.set_value("cylinder_teeth", dies_doc.teeth);
+					frm.set_value("plate_up", dies_doc.across_ups);
+					frm.set_value("plate_round", dies_doc.round_ups);
+					frm.set_value("packing_pieces", dies_doc.qty);
+					
+					// material_type must be selected manually as Dies.material doesn't map to Label finish types
+				}
+			}
+		});
+	},
 });
 
 frappe.ui.form.on("Colour of Parts", {
