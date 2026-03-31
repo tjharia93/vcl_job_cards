@@ -110,7 +110,7 @@
    "fieldname": "material",
    "fieldtype": "Select",
    "label": "Material",
-   "options": "\nTHERMAL\nPHOTO\nMETAL\nPLASTIC\nCARDOARD\nWOOD"
+   "options": "\nPP White\nPP Clear\nPP Silver\nThermal\nSemi-Gloss"
   },
   {
    "fieldname": "orders_section",
