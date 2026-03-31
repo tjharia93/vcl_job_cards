@@ -240,7 +240,7 @@
    "depends_on": "eval:doc.product_type=='Label'",
    "fieldname": "packing_pieces",
    "fieldtype": "Int",
-   "label": "Packing Pieces",
+   "label": "Packing Pieces"
   
   },
   {
