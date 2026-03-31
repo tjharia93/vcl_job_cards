@@ -234,7 +234,7 @@
    "fieldtype": "Select",
    "label": "Material Type",
    "mandatory_depends_on": "eval:doc.product_type=='Label'",
-   "options": "\nSemi Gloss\nGlossy\nMatte\nPearl"
+   "options": "\nPP White\nPP Clear\nPP Silver\nThermal\nSemi-Gloss"
   },
   {
    "depends_on": "eval:doc.product_type=='Label'",
