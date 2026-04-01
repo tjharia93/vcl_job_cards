@@ -1,43 +1,190 @@
 {
  "actions": [],
+ "autoname": "naming_series:",
  "creation": "2026-04-01 00:00:00.000000",
  "doctype": "DocType",
+ "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "amended_from",
+  "naming_series",
   "production_date",
-  "station"
+  "station",
+  "shift",
+  "supervisor",
+  "remarks",
+  "section_planning",
+  "planning_lines",
+  "section_actual_production",
+  "actual_lines",
+  "section_summary",
+  "total_good_qty",
+  "total_waste_qty"
  ],
  "fields": [
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "description": "If this sheet was amended, the original is linked here.",
+   "no_copy": 1,
+   "options": "Production Sheet",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "description": "Auto-generated number. Format: PS-2026-00001.",
+   "no_copy": 1,
+   "options": "PS-.YYYY.-.#####",
+   "reqd": 1,
+   "set_only_once": 1
+  },
   {
    "default": "Today",
    "fieldname": "production_date",
    "fieldtype": "Date",
    "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "Production Date",
+   "description": "Date production was carried out. Defaults to today.",
    "reqd": 1
   },
   {
    "fieldname": "station",
    "fieldtype": "Data",
    "in_list_view": 1,
-   "label": "Station"
+   "in_standard_filter": 1,
+   "label": "Station",
+   "description": "Machine or station, e.g. Flexo 1, Slitter 2."
+  },
+  {
+   "fieldname": "shift",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Shift",
+   "description": "Shift name, e.g. Day, Night, Morning."
+  },
+  {
+   "fieldname": "supervisor",
+   "fieldtype": "Data",
+   "label": "Supervisor",
+   "description": "Supervisor overseeing this shift/station."
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks",
+   "description": "General notes about this production sheet."
+  },
+  {
+   "fieldname": "section_planning",
+   "fieldtype": "Section Break",
+   "label": "Planning"
+  },
+  {
+   "fieldname": "planning_lines",
+   "fieldtype": "Table",
+   "label": "Planning Lines",
+   "description": "Each row is a planned run for a specific Job Card.",
+   "options": "Production Planning Line"
+  },
+  {
+   "fieldname": "section_actual_production",
+   "fieldtype": "Section Break",
+   "label": "Actual Production"
+  },
+  {
+   "fieldname": "actual_lines",
+   "fieldtype": "Table",
+   "label": "Actual Lines",
+   "description": "Each row records actual output for a Job Card.",
+   "options": "Production Actual Line"
+  },
+  {
+   "fieldname": "section_summary",
+   "fieldtype": "Section Break",
+   "label": "Summary"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_good_qty",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Good Qty",
+   "description": "Sum of Good Qty from all Actual Lines.",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_waste_qty",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Waste Qty",
+   "description": "Sum of Waste Qty from all Actual Lines.",
+   "read_only": 1
   }
  ],
+ "is_submittable": 1,
  "links": [],
  "modified": "2026-04-01 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "Job Card Tracking",
  "name": "Production Sheet",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
+   "amend": 1,
+   "cancel": 1,
    "create": 1,
    "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
    "read": 1,
+   "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 0,
+   "cancel": 0,
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User",
+   "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],
  "sort_field": "modified",
- "sort_order": "DESC"
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
 }
