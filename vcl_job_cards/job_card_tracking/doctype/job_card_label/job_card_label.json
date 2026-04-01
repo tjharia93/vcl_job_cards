@@ -21,6 +21,7 @@
   "column_break_spec_1",
   "quantity_ordered",
   "label_number_of_colours",
+  "job_colours",
   "section_break_label_snapshot",
   "dies",
   "label_length",
@@ -157,6 +158,12 @@
    "fieldtype": "Int",
    "label": "Number of Colours",
    "read_only": 1
+  },
+  {
+   "description": "e.g. CMYK, Spot Green, Spot Red",
+   "fieldname": "job_colours",
+   "fieldtype": "Data",
+   "label": "Job Colours"
   },
   {
    "fieldname": "section_break_label_snapshot",
