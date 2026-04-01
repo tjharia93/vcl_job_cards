@@ -41,7 +41,12 @@
   "sales_rep_comments",
   "management_approver",
   "management_approval_date",
-  "management_comments"
+  "management_comments",
+  "section_production_tracking",
+  "total_actual_good_qty",
+  "total_waste_qty",
+  "balance_qty",
+  "production_status"
  ],
  "fields": [
   {
@@ -266,6 +271,42 @@
    "fieldname": "management_comments",
    "fieldtype": "Small Text",
    "label": "Management Comments"
+  },
+  {
+   "fieldname": "section_production_tracking",
+   "fieldtype": "Section Break",
+   "label": "Production Tracking"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_actual_good_qty",
+   "fieldtype": "Int",
+   "label": "Total Actual Good Qty",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "total_waste_qty",
+   "fieldtype": "Int",
+   "label": "Total Waste Qty",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "balance_qty",
+   "fieldtype": "Int",
+   "label": "Balance Qty",
+   "read_only": 1
+  },
+  {
+   "default": "Not Started",
+   "fieldname": "production_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Production Status",
+   "options": "Not Started\nIn Production\nCompleted",
+   "read_only": 1
   }
  ],
  "is_submittable": 1,
