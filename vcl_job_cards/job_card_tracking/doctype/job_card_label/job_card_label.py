@@ -9,7 +9,6 @@ class JobCardLabel(Document):
 		self.validate_spec_fields()
 		self.validate_quantity()
 		self.validate_plate()
-		self.validate_cylinder()
 		self.validate_numbering()
 		self.set_sales_rep_info()
 		self.set_status()
@@ -78,15 +77,14 @@ class JobCardLabel(Document):
 			frappe.throw("Quantity Ordered must be greater than 0.")
 
 	def validate_plate(self):
+		if not self.plate_status:
+			frappe.throw("Plate Status is required. Please select New or Old.")
+
 		if self.plate_status == "Old" and not self.plate_code:
 			frappe.throw("Plate Code is required when Plate Status is 'Old'.")
 
 		if self.plate_status == "New" and self.plate_code:
 			frappe.throw("Plate Code must be empty when Plate Status is 'New'.")
-
-	def validate_cylinder(self):
-		if self.cylinder_status == "Existing" and not self.cylinder_code:
-			frappe.throw("Cylinder Code is required when Cylinder Status is 'Existing'.")
 
 	def validate_numbering(self):
 		if not self.numbering_required:
