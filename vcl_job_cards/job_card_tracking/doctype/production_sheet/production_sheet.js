@@ -1,4 +1,4 @@
-frappe.ui.form.on("Production Entry", {
+frappe.ui.form.on("Production Sheet", {
 	refresh: function (frm) {
 		frm.fields_dict["planning_lines"].grid.get_field("job_card").get_query = function () {
 			return {

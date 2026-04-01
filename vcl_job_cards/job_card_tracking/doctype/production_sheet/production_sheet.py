@@ -2,7 +2,7 @@ import frappe
 from frappe.model.document import Document
 
 
-class ProductionEntry(Document):
+class ProductionSheet(Document):
 	def validate(self):
 		self.validate_actual_lines()
 		self.calculate_totals()
@@ -57,14 +57,14 @@ class ProductionEntry(Document):
 
 
 def update_job_card_totals(job_card_name):
-	"""Aggregate totals from ALL submitted Production Entries for a Job Card."""
+	"""Aggregate totals from ALL submitted Production Sheets for a Job Card."""
 	totals = frappe.db.sql("""
 		SELECT
 			COALESCE(SUM(pal.good_qty), 0) as total_good,
 			COALESCE(SUM(pal.waste_qty), 0) as total_waste
 		FROM `tabProduction Actual Line` pal
-		JOIN `tabProduction Entry` pe ON pe.name = pal.parent
-		WHERE pal.job_card = %s AND pe.docstatus = 1
+		JOIN `tabProduction Sheet` ps ON ps.name = pal.parent
+		WHERE pal.job_card = %s AND ps.docstatus = 1
 	""", job_card_name, as_dict=True)[0]
 
 	order_qty = frappe.db.get_value(
