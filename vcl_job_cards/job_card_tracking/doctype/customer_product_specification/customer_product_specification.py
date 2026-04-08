@@ -141,29 +141,3 @@ class CustomerProductSpecification(Document):
 				check(part, valid_middle, "middle part")
 			check(parts[-1], valid_last, "last part")
 
-	def validate_label(self):
-		if self.product_type != "Label":
-			return
-
-		required_fields = [
-			("label_length", "Label Length"),
-			("label_width", "Label Width"),
-			("label_number_of_colours", "Number of Colours"),
-			("material_type", "Material Type"),
-		]
-
-		for field_name, field_label in required_fields:
-			if not getattr(self, field_name, None):
-				frappe.throw(f"{field_label} is required for Label product type.")
-
-	def validate_exercise_books(self):
-		if self.product_type != "Exercise Books":
-			return
-
-		if not self.number_of_pages:
-			frappe.throw("Number of Pages is required for Exercise Books.")
-
-		if self.number_of_pages % 4 != 0:
-			frappe.throw(
-				f"Number of Pages must be a multiple of 4. Got {self.number_of_pages}."
-			)
